@@ -5,7 +5,7 @@ variable "mount" {
 
 module "mount" {
   for_each = toset([var.mount])
-  source   = "modules/mount/"
+  source   = "./modules/mount/"
   path     = each.key
 }
 

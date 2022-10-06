@@ -5,7 +5,7 @@ variable "approle" {
 
 module "approle" {
   for_each = var.approle
-  source   = "modules/vault_approle/"
+  source   = "./modules/vault_approle"
 
   role_name     = each.key
   mount         = lookup(each.value, "mount")
