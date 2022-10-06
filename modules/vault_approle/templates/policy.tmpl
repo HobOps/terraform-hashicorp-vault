@@ -1,0 +1,18 @@
+# List all environments
+path "${mount}/metadata" {
+  capabilities = ["list"]
+}
+
+# List all keys in the allowed environments
+%{ for environment in environments ~}
+path "${mount}/metadata/${environment}/*" {
+  capabilities = ["list"]
+}
+%{ endfor ~}
+
+# Read all keys in the allowed environments
+%{ for environment in environments ~}
+path "${mount}/data/${environment}/*" {
+  capabilities = ["read"]
+}
+%{ endfor ~}
