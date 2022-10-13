@@ -1,0 +1,18 @@
+# List all environments
+path "${project_id}/metadata" {
+  capabilities = ["list"]
+}
+
+# List all keys in the allowed environments
+%{ for environment in environments ~}
+path "${project_id}/metadata/${environment}/*" {
+  capabilities = ["list"]
+}
+%{ endfor ~}
+
+# Read all keys in the allowed environments
+%{ for environment in environments ~}
+path "${project_id}/data/${environment}/*" {
+  capabilities = ["read"]
+}
+%{ endfor ~}
