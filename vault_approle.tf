@@ -1,10 +1,10 @@
-variable "approle" {
+variable "vault_approle" {
   type    = any
   default = {}
 }
 
-module "approle" {
-  for_each = var.approle
+module "vault_approle" {
+  for_each = var.vault_approle
   source   = "./modules/vault_approle"
 
   role_name     = each.key
@@ -16,6 +16,6 @@ module "approle" {
   metadata      = lookup(each.value, "metadata", {})
 }
 
-output "approle" {
-  value = module.approle
+output "vault_approle" {
+  value = module.vault_approle
 }
