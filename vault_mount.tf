@@ -3,12 +3,16 @@ variable "vault_mount" {
   default = ""
 }
 
+variable "type" {
+  type    = string
+  default = "kv-v2"
+}
+
 module "vault_mount" {
-  for_each    = var.vault_mount != "" ? toset([var.vault_mount]) : []
-  source      = "./modules/vault_mount/"
-  path        = each.key
-  description = lookup(var.vault_mount, "description", "")
-  type        = lookup(var.vault_mount, "type", "")
+  for_each = var.vault_mount != "" ? toset([var.vault_mount]) : []
+  source   = "./modules/vault_mount/"
+  path     = each.key
+  type     = var.type
 }
 
 output "vault_mount" {
