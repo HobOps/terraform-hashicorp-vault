@@ -14,6 +14,6 @@ provider "vault" {
 }
 
 variable "vault_provider" {
-  type = any
+  type    = any
   default = {}
 }

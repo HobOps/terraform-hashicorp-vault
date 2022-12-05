@@ -11,3 +11,8 @@ variable "type" {
   type = string
   default = "kv-v2"
 }
+
+variable "options" {
+  type = any
+  default = {}
+}
