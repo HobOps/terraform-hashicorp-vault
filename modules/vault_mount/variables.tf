@@ -1,5 +1,5 @@
 variable "description" {
-  type = string
+  type    = string
   default = "Managed by Terraform"
 }
 
@@ -8,11 +8,11 @@ variable "path" {
 }
 
 variable "type" {
-  type = string
+  type    = string
   default = "kv-v2"
 }
 
 variable "options" {
-  type = any
+  type    = any
   default = {}
 }

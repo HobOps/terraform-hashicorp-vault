@@ -2,7 +2,7 @@
 resource "vault_policy" "default" {
   name = var.role_name
   policy = templatefile("${path.module}/templates/policy.tmpl", {
-    mount   = var.mount,
+    mount        = var.mount,
     environments = var.environments
   })
 }
@@ -22,5 +22,5 @@ resource "vault_approle_auth_backend_role_secret_id" "default" {
   role_name = vault_approle_auth_backend_role.default.role_name
   cidr_list = var.cidr_list
   secret_id = var.secret_id
-  metadata = jsonencode(var.metadata)
+  metadata  = jsonencode(var.metadata)
 }

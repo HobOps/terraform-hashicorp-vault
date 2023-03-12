@@ -29,6 +29,6 @@ variable "secret_id" {
 }
 
 variable "metadata" {
-  type = any
+  type    = any
   default = {}
 }
